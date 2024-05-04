@@ -14,11 +14,11 @@
 ```sql
 SELECT
 cl.ClientName,
-count([cc.Id](http://cc.id/)) as ContactsCount
+count([cc.Id]) as ContactsCount
 FROM Clients cl
 LEFT JOIN ClientContacts cc
-ON cc.ClientId = [cl.Id](http://cl.id/)
-GROUP BY [cl.Id](http://cl.id/);
+ON cc.ClientId = [cl.Id]
+GROUP BY [cl.Id];
 ```
 
 ![image](https://github.com/darthdev59/ITExpert/assets/78018833/220d6fd3-8da7-4cab-9d25-c2d7ad9c593d)
@@ -31,12 +31,12 @@ GROUP BY [cl.Id](http://cl.id/);
 ```sql
 SELECT
 cl.ClientName,
-count([cc.Id](http://cc.id/)) as ContactsCount
+count([cc.Id]) as ContactsCount
 FROM Clients cl
 LEFT JOIN ClientContacts cc
-ON cc.ClientId = [cl.Id](http://cl.id/)
-GROUP BY [cl.Id](http://cl.id/)
-HAVING count([cc.Id](http://cc.id/)) > 2;
+ON cc.ClientId = [cl.Id]
+GROUP BY [cl.Id]
+HAVING count([cc.Id]) > 2;
 ```
 ![image](https://github.com/darthdev59/ITExpert/assets/78018833/5a843bf2-fc48-4278-9390-41ed4f5a15cc)
 
