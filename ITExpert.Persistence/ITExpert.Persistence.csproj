@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ITExpert.Application\ITExpert.Application.csproj" />
     <ProjectReference Include="..\ITExpert.Domain\ITExpert.Domain.csproj" />
   </ItemGroup>
 

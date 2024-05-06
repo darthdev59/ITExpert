@@ -2,5 +2,8 @@
 
 namespace ITExpert.Application.Values.Queries.GetValues
 {
-    public sealed record GetValuesQuery : IQuery<List<ValuesResponse>>;
+    public sealed record GetValuesQuery : IQuery<List<ValuesResponse>>
+    {
+
+    }
 }

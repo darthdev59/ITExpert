@@ -3,6 +3,9 @@ using ITExpert.Application.Values.Queries.GetValues;
 using ITExpert.Domain.Shared;
 using ITExpert.Persistence;
 using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using System.Data.Common;
+using System.Runtime.CompilerServices;
 
 
 namespace ITExpert.App.Server.Endpoints
@@ -16,7 +19,7 @@ namespace ITExpert.App.Server.Endpoints
             group.MapPost("", async (CreateValueCommand values, ISender sender) =>
             {
                 var result = await sender.Send(values);
-                return result.IsSuccess ? Results.Ok() : Results.BadRequest(result.Error);
+                return result.IsSuccess ? Results.Created() : Results.BadRequest(result.Error);
             })
             .WithOpenApi()
             .WithName("Create values")
@@ -26,17 +29,18 @@ namespace ITExpert.App.Server.Endpoints
             group.MapGet("", async (ISender sender) =>
             {
                 var result = await sender.Send(new GetValuesQuery());
-                return result.IsSuccess ? Results.Ok(result.Data) : Results.BadRequest(result.Error); ;
+                return result.IsSuccess ? Results.Ok(result.Data) : Results.BadRequest(result.Error);
             })
             .WithOpenApi()
             .WithName("Get values");
 
-            group.MapGet("filter", async (ISender sender) =>
-            {
-
-            })
-            .WithOpenApi()
-            .WithName("Get filtered values");
+            //group.MapGet("filter", async (ISender sender, [AsParameters] GetValuesQueryFilter filter) =>
+            //{
+            //    var result = await sender.Send(new GetValuesQuery(filter));
+            //    return result.IsSuccess ? Results.Ok(result.Data) : Results.BadRequest(result.Error);
+            //})
+            //.WithOpenApi()
+            //.WithName("Get filtered values");
         }
     }
 }
